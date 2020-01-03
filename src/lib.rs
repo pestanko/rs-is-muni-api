@@ -1,7 +1,9 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+extern crate reqwest;
+extern crate sxd_document;
+extern crate sxd_xpath;
+
+
+mod client;
+mod errors;
+mod entities;
+

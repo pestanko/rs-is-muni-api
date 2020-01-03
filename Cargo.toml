@@ -9,3 +9,10 @@ edition = "2018"
 [dependencies]
 reqwest = "0.9.24"
 sxd-xpath = "0.4.2"
+sxd-document = "0.3.2"
+
+[dev-dependencies]
+mockito = "0.22.0"
+
+
+
