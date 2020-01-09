@@ -6,4 +6,5 @@ extern crate sxd_xpath;
 mod client;
 mod errors;
 mod entities;
+mod utils;
 

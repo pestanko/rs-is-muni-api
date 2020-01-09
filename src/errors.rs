@@ -1,4 +1,4 @@
-use std::fmt;
+use std::{fmt, error};
 
 pub trait IsApiError {
     fn message(&self) -> &str;
@@ -21,14 +21,14 @@ impl <T> fmt::Debug for T where T: IsApiError {
 #[derive(From)]
 pub enum IsApiErrors {
     HttpClientError(reqwest::Error),
-    ParseError()
+    ParseError(sxd_document::parser::Error)
 }
 
 impl IsApiError for IsApiErrors {
-    fn message(&self) -> &str {
-        match *self {
-            HttpClientError(err) => format!("Http Error: {}", err),
-            ParseError(err) => format!("Parse Error: {}", err)
+    fn message(&self) -> String {
+        match self {
+            IsApiErrors::HttpClientError(err) => format!("Http Error: {}", err),
+            IsApiErrors::ParseError(err) => format!("Parse Error: {}", err)
         }
     }
 }

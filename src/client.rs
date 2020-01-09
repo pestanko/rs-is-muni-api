@@ -1,3 +1,5 @@
+use crate::entities::Creatable;
+
 #[derive(Debug)]
 pub struct NotesClient {
     client: reqwest::Client,
